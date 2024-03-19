@@ -77,7 +77,7 @@ resource "aws_security_group" "app_server_security_group" {
     from_port       = 443
     to_port         = 443
     protocol        = "tcp"
-    security_groups = ["0.0.0.0/0"]
+    security_groups = [aws_security_group.alb_security_group.id]
   }
 
   egress {
